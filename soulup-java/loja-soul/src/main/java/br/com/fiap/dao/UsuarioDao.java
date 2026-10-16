@@ -32,7 +32,7 @@ public class UsuarioDao {
 
         stmt.execute();
         stmt.close();
-        return "Usuário Cadastrado com Sucesso!!!";
+        return "uhul!! o usuário foi Cadastrado com Sucesso!!!";
     }
 
     public String atualizar(Usuario usuario) throws SQLException {
@@ -51,7 +51,7 @@ public class UsuarioDao {
 
         stmt.executeUpdate();
         stmt.close();
-        return "Usuário Atualizado com Sucesso!!!";
+        return "legal! esse usuário foi atualizado com Sucesso!!!";
     }
 
     public String deletar(String cpf) throws SQLException {
@@ -59,7 +59,7 @@ public class UsuarioDao {
         stmt.setString(1, cpf);
         stmt.execute();
         stmt.close();
-        return "Usuário Deletado com Sucesso!!!";
+        return "Usuário Deletado com Sucesso!!";
     }
 
     public Usuario buscarPorCpf(String cpf) throws SQLException {
@@ -121,9 +121,10 @@ public class UsuarioDao {
             usuarioAtual.setPontos(novoSaldo);
             atualizar(usuarioAtual);
 
-            return "Parabéns! Você ganhou " + pontosGanhos + " pontos. Seu novo saldo de pontos é de : " + novoSaldo;
+            return "CARAMBA!! Parabéns!! Você ganhou " + pontosGanhos + " pontos. Seu saldo Atualizado é de : " + novoSaldo;
         } else {
-            return "Erro: Usuário não encontrado no sistema.";
+            return "Erro: Usuário não encontrado no sistema." +
+                    "\n veriffique as informações e tente novamente!";
         }
     }
 }

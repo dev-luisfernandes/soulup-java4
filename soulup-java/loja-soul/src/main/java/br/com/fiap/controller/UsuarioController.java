@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/usuario")
-public class UsuarioController {
+public class  UsuarioController {
 
     UsuarioBo usuarioBo = new UsuarioBo();
 
