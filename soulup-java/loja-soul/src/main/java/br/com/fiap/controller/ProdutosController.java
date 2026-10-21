@@ -24,7 +24,7 @@ public class ProdutosController {
 
     // Buscar por ID
     @GetMapping("/{id}")
-    public Produtos buscarPorIdRs(@PathVariable int id) throws ExcecoesConexao {
+    public Produtos buscarPorIdRs(@PathVariable int id) throws ExcecoesConexao, ExcecoesRegraNegocio {
         return produtosBo.buscarPorIdBo(id);
     }
 
