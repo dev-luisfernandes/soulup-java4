@@ -12,6 +12,19 @@ import java.util.Map;
 @RestControllerAdvice
 public class ExcecoesCodigos extends Exception{
 
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> erro400(
+            IllegalArgumentException e) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                Map.of(
+                        "erro", "400",
+                        "mensagem", "Os dados enviados são inválidos verifique as informações e tente novamente."
+                )
+        );
+    }
+
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<Map<String, String>> erro404(
             NoResourceFoundException e) {
@@ -19,7 +32,7 @@ public class ExcecoesCodigos extends Exception{
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 Map.of(
                         "erro", "404",
-                        "mensagem", "Recurso não encontrado."
+                        "mensagem", "O recurso solicitado não foi encontrado verifique o endereço e tente novamente."
                 )
         );
     }
@@ -30,7 +43,7 @@ public class ExcecoesCodigos extends Exception{
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
                 Map.of(
                         "erro", "500",
-                        "mensagem", "Ocorreu um erro interno no servidor."
+                        "mensagem", "Ocorreu um erro inesperado no servidor tente novamente mais tarde"
                 )
         );
     }
